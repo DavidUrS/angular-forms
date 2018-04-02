@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="container-fluid mx-auto">
+    <h3>Formulario de estudiantes</h3>
+  </div>
+  <form (ngSubmit)="onSubmit()" #formStudent>
+    <div class="form-group">
+      <label for="Identificacion">Identificación</label>
+      <input type="number" [(ngModel)]="modelStudent.id" name="id" #id="ngModel" [ngModelOptions]="{updateOn: 'change'}" class="form-control" placeholder="Ingresa tu numero de identificación" required autofocus>
+    </div>
+    <div class="form-group">
+      <label for="nombres">Nombres</label>
+      <input type="text" [(ngModel)]="modelStudent.name" name="name" #id="ngModel" [ngModelOptions]="{updateOn: 'change'}" class="form-control" placeholder="Ingresa tus nombres" required>
+    </div>
+    <div class="form-group">
+      <label for="apellidos">Apellidos</label>
+      <input type="text" [(ngModel)]="modelStudent.lastname" name="lastname" #id="ngModel" [ngModelOptions]="{updateOn: 'change'}" class="form-control" placeholder="Ingresa tus apellidos" required>
+    </div>
+    <div class="form-group">
+      <label for="edad">Edad</label>
+      <input type="number" [(ngModel)]="modelStudent.age" name="age" #id="ngModel" [ngModelOptions]="{updateOn: 'change'}" class="form-control" placeholder="Ingresa tus edad" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
+  <h2>Lista de estudiantes</h2>
+  <section *ngIf="listStudents.length>0">
+      <table class="table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#Id</th>
+            <th scope="col">Firstname</th>
+            <th scope="col">Lastname</th>
+            <th scope="col">Age</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let lista of listStudents">
+            <th scope="row">{{lista.id}}</th>
+            <td>{{lista.name}}</td>
+            <td>{{lista.lastname}}</td>
+            <td>{{lista.age}}</td>
+          </tr>
+        </tbody>
+      </table>
+  </section>
+</div>
